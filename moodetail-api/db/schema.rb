@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_02_16_202148) do
 
   create_table "moods", force: :cascade do |t|
-    t.string "type"
+    t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
