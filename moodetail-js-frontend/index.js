@@ -107,6 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
             fetch(promptUrl + `/${promptId}`, {
                 method: 'DELETE'
             });
+        } else if (e.target.innerHTML === "Edit") {
+            promptId = parseInt(e.target.getAttribute('prompt-id'));
+            editPrompt(promptId, e);
         }
     })
+
+    function editPrompt(promptId, e) {
+        // console.log('in editPrompt function')
+        const form = document.createElement('form');
+        e.target.parentNode.appendChild(form);
+        const textarea = document.createElement('textarea');
+        form.appendChild(textarea);
+        const prompt = e.target.parentNode.firstChild;
+        textarea.appendChild(prompt);
+        // debugger
+    }
 });
