@@ -8,15 +8,22 @@
 </head>
 <body>
     <h1>MOODetail</h1>
-    <form>
-        <select id="moods" name="moods">
-            <option value="Happy">Happy</option>
-            <option value="Sad">Sad</option>
-            <option value="Angry">Angry</option>
-        </select>
-        <input type="text_field">
-        <input type="submit" value="Submit">
+
+    <div class="form-container">
+      <select type="select" name="mood" value="" class="input-text">
+        <option value="Happy">Happy</option>
+        <option value="Sad">Sad</option>
+        <option value="Angry">Angry</option>
+      </select>
+      <br>
+
+      <form class="input-text">  
+        <input type="text" name="prompt" value="" placeholder="What prompted this mood?" class="input-text">
+      <br>
+
+      <input type="submit" value="Submit" />
     </form>
+    </div>
 
     <div id="moods-container">
     </div>
