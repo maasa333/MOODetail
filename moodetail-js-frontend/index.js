@@ -57,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         const moodId = assignedMood.id;
         postPrompt(desc, moodId);
+        inputs[0].value = "Select Mood";
+        inputs[2].value = "";
     })
 
     function postPrompt(desc, moodId) {
@@ -72,15 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
             body: JSON.stringify(data)
         })
         .then(resp => {
-            return resp.json()
+            return resp.json();
         })
         .then(prompt => {
-            updatePrompts(prompt)
+            updatePrompts(prompt);
         })
     };
 
     function updatePrompts(prompt) {
-        // debugger
         const card = document.querySelector(`[mood-id = '${prompt.mood_id}']`)
         const ul = card.nextSibling;
         const li = document.createElement('li');
