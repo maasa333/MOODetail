@@ -30,9 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function appendPrompts(mood) {
-        const prompts = mood.prompts.map(p => {
-            return p.desc;
-        })
+        const prompts = mood.prompts;
+        // mood.prompts.map(p => {
+        //     return p.desc;
+        // })
         const ul = document.createElement('ul');
         const container = document.querySelector('#moods-container');
         container.appendChild(ul);
@@ -40,7 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
         prompts.map(p => {
             const li = document.createElement('li');
             ul.appendChild(li);
-            li.innerText = p;
+            li.innerText = p.desc;
+
+            const editBtn = document.createElement('button');
+            li.appendChild(editBtn);
+            editBtn.innerHTML = "Edit";
+            editBtn.setAttribute('prompt-id', p.id)
+
+            const deleteBtn = document.createElement('button');
+            li.appendChild(deleteBtn);
+            deleteBtn.innerHTML = "Delete";
+            deleteBtn.setAttribute('prompt-id', p.id)
         })
     }
 
