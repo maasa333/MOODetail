@@ -99,4 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
         ul.appendChild(li);
         li.innerText = `${prompt.desc}`
     }
+
+    document.addEventListener('click', e => {
+        if (e.target.innerHTML === "Delete") {
+            promptId = parseInt(e.target.getAttribute('prompt-id'));
+            e.target.parentNode.remove();
+            fetch(promptUrl + `/${promptId}`, {
+                method: 'DELETE'
+            });
+        }
+    })
 });
