@@ -31,9 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function appendPrompts(mood) {
         const prompts = mood.prompts;
-        // mood.prompts.map(p => {
-        //     return p.desc;
-        // })
         const ul = document.createElement('ul');
         const container = document.querySelector('#moods-container');
         container.appendChild(ul);
@@ -58,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const formContainer = document.querySelector('div.form-container');
     const inputs = document.querySelectorAll('.input-text')
 
+    // Add new prompt
     formContainer.addEventListener('submit', e => {
         e.preventDefault();        
         const state = inputs[0].value;
@@ -68,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         const moodId = assignedMood.id;
         postPrompt(desc, moodId);
+
         inputs[0].value = "Select Mood";
         inputs[2].value = "";
     })
@@ -98,6 +97,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const li = document.createElement('li');
         ul.appendChild(li);
         li.innerText = `${prompt.desc}`
+
+        // debugger
+
+        // const li = document.createElement('li');
+        // ul.appendChild(li);
+        li.innerText = prompt.desc;
+
+        const editBtn = document.createElement('button');
+        li.appendChild(editBtn);
+        editBtn.innerHTML = "Edit";
+        editBtn.setAttribute('prompt-id', prompt.id)
+
+        const deleteBtn = document.createElement('button');
+        li.appendChild(deleteBtn);
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.setAttribute('prompt-id', prompt.id)
     }
 
     document.addEventListener('click', e => {
@@ -109,12 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         } else if (e.target.innerHTML === "Edit") {
             promptId = parseInt(e.target.getAttribute('prompt-id'));
+            e.target.innerHTML = "Save Changes";
             editPrompt(promptId, e);
         }
     })
 
     function editPrompt(promptId, e) {
-        // console.log('in editPrompt function')
         const form = document.createElement('form');
         e.target.parentNode.appendChild(form);
         const textarea = document.createElement('textarea');
@@ -122,5 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const prompt = e.target.parentNode.firstChild;
         textarea.appendChild(prompt);
         // debugger
+        e.target.addEventListener('click', e => {
+            if (e.target.innerHTML === "Save Changes") {
+                console.log(promptId);
+            }
+        })
     }
 });
