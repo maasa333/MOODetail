@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="index.js"></script>
     <title>MOODetail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 </head>
 <body>
     <h1>MOODetail</h1>
 
-    <div class="form-container">
-      <select type="select" name="mood" value="" class="input-text">
+    <div class="select is-rounded">
+      <form id="new-prompt-form"></form>
+        <select>
+          <option value="Select Mood">Select Mood</option>
+          <option value="Happy">Happy</option>
+          <option value="Sad">Sad</option>
+          <option value="Angry">Angry</option>
+          <option value="Calm">Calm</option>
+        </select>
+        
+        <input type="text">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+    <div id="moods-container">
+    </div>
+</body>
+</html>
+
+<!-- 
+      <select type="select" id="select-mood">
         <option value="Select Mood">Select Mood</option>
         <option value="Happy">Happy</option>
         <option value="Sad">Sad</option>
@@ -25,9 +46,4 @@
 
       <input class="input-text" type="submit" value="Submit" />
     </form>
-    </div>
-
-    <div id="moods-container">
-    </div>
-</body>
-</html>
+    </div> -->

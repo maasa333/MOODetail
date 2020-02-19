@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    const formContainer = document.querySelector('div.form-container');
+    const formContainer = document.querySelector('#new-prompt-form');
     const inputs = document.querySelectorAll('.input-text')
 
     // Add new prompt
