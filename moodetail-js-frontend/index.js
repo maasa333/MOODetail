@@ -98,10 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ul.appendChild(li);
         li.innerText = `${prompt.desc}`
 
-        // debugger
-
-        // const li = document.createElement('li');
-        // ul.appendChild(li);
         li.innerText = prompt.desc;
 
         const editBtn = document.createElement('button');
@@ -115,15 +111,16 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteBtn.setAttribute('prompt-id', prompt.id)
     }
 
+    // Delete and Edit button functions
     document.addEventListener('click', e => {
+        promptId = parseInt(e.target.getAttribute('prompt-id'));
+
         if (e.target.innerHTML === "Delete") {
-            promptId = parseInt(e.target.getAttribute('prompt-id'));
             e.target.parentNode.remove();
             fetch(promptUrl + `/${promptId}`, {
                 method: 'DELETE'
             });
         } else if (e.target.innerHTML === "Edit") {
-            promptId = parseInt(e.target.getAttribute('prompt-id'));
             e.target.innerHTML = "Save Changes";
             editPrompt(promptId, e);
         }
@@ -136,10 +133,26 @@ document.addEventListener("DOMContentLoaded", () => {
         form.appendChild(textarea);
         const prompt = e.target.parentNode.firstChild;
         textarea.appendChild(prompt);
-        // debugger
+
         e.target.addEventListener('click', e => {
             if (e.target.innerHTML === "Save Changes") {
-                console.log(promptId);
+                const editedPrompt = e.target.parentElement.lastChild.elements[0].value;
+
+                return fetch(promptUrl + `/${promptId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        desc: editedPrompt
+                    })
+                })
+                .then(resp => {
+                    return resp.json();
+                })
+                .then(prompt => {
+                    updatePrompts(prompt);
+                })
             }
         })
     }
