@@ -3,32 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="index.js"></script>
     <title>MOODetail</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <!-- <script src="src/index.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"> -->
 </head>
-<body>
-    <h1>MOODetail</h1>
+  <body>
+    <h1 class="title">MOODetail</h1>
+    <div class="container">
+      <!-- <div class="select"> -->
+        <form id="new-prompt-form">
+          <select class="input-field">
+            <option>Select Mood</option>
+            <option>Happy</option>
+            <option>Sad</option>
+            <option>Angry</option>
+            <option>Calm</option>
+          </select>
+          
+          <input class="input-field" type="text">
+          <input type="submit">
+        </form>
+      </div>
+  
+      <div class="container" id="moods-container">
+      </div>
 
-    <div class="select is-rounded">
-      <form id="new-prompt-form"></form>
-        <select>
-          <option value="Select Mood">Select Mood</option>
-          <option value="Happy">Happy</option>
-          <option value="Sad">Sad</option>
-          <option value="Angry">Angry</option>
-          <option value="Calm">Calm</option>
-        </select>
-        
-        <input type="text">
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-
-    <div id="moods-container">
-    </div>
-</body>
+      <script src="src/components/moods.js"></script>
+      <script src="src/components/app.js"></script>
+      <script src="src/adapters/moodsadapter.js"></script>
+      <script src="src/index.js"></script>
+      
+  </body>
 </html>
+
 
 <!-- 
       <select type="select" id="select-mood">
@@ -47,3 +54,31 @@
       <input class="input-text" type="submit" value="Submit" />
     </form>
     </div> -->
+
+
+    <!-- <h1 class="title">MOODetail</h1>
+    <div class="container">
+      <div id="new-prompt-container">
+        <form id="new-prompt-form" class="select is-rounded">
+          <select>
+            <option>Select Mood</option>
+            <option>Happy</option>
+            <option>Sad</option>
+            <option>Angry</option>
+            <option>Calm</option>
+          </select>
+          <input type="text" class="input is-rounded">
+          <input type="submit" class="button is-rounded">
+        </form>
+
+        <div id="prompts-container">
+
+        </div>
+      </div>
+    </div>
+  
+    <script src="src/adapters/PromptsAdapter.js"></script>
+    <script src="src/components/app.js"></script>
+    <script src="src/components/prompts.js"></script>
+    
+    -->

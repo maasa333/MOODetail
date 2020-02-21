@@ -1,5 +1,5 @@
 class App {
     constructor() {
-        this.prompts = new Prompts();
+        this.moods = new Moods();
     }
 }
