@@ -8,15 +8,16 @@ class Moods {
 
     fetchAndLoadMoods() {
         this.adapter.getMoods().then(moods => {
-            console.log(moods)
+            moods.map(mood => this.moods.push(mood))
         })
-        // .then(() => {
-        //     this.display()
-        // })
+        .then(() => {
+            this.display()
+        })
     }
 
     display() {
         const moodsContainer = document.getElementById('moods-container');
         moodsContainer.innerText = 'test'
+        console.log(`moods:`, this.moods)
     }
 }
