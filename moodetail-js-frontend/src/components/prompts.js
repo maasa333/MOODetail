@@ -9,7 +9,6 @@ class Prompts {
     fetchAndLoadPrompts() {
         this.adapter.getPrompts().then(prompts => {
             prompts.map(prompt => this.prompts.push(new Prompt(prompt)))
-            console.log(this.prompts)
         })
         .then(() => {
             this.display()

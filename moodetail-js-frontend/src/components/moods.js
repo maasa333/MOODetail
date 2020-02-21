@@ -9,7 +9,6 @@ class Moods {
     fetchAndLoadMoods() {
         this.adapter.getMoods().then(moods => {
             moods.map(mood => this.moods.push(new Mood(mood)))
-            console.log(this.moods)
         })
         .then(() => {
             this.display()
@@ -18,6 +17,7 @@ class Moods {
 
     display() {
         const moodsContainer = document.getElementById('moods-container')
-        // console.log(this)
+        const moodsStr = this.moods.map(mood => `<li>${mood.state}</li>`).join('')
+        moodsContainer.innerHTML = moodsStr
     }
 }
