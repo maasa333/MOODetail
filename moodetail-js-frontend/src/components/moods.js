@@ -17,7 +17,6 @@ class Moods {
 
     display() {
         const moodsContainer = document.getElementById('moods-container');
-        moodsContainer.innerText = 'test'
-        console.log(`moods:`, this.moods)
+        // moodsContainer.innerText = 'test'
     }
 }
