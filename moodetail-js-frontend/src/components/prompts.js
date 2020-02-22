@@ -2,7 +2,6 @@ class Prompts {
     constructor() {
         this.prompts = []
         this.adapter = new PromptsAdapter()
-        // this.bindEventListeners()
         this.fetchAndLoadPrompts()
     }
 
@@ -16,9 +15,14 @@ class Prompts {
     }
 
     display() {
-        const moodsContainer = document.getElementById('moods-container')
-        
-        const promptsStr = this.prompts.map(mood => `<div class="mood-card">${mood.state}</div>`).join('')
-        moodsContainer.innerHTML = promptsStr
+        const testMoodCard = document.querySelector('.mood-card')
+        this.prompts.forEach(prompt => {
+            if (prompt.mood_id === 1) {
+                const li = document.createElement('li')
+                li.innerHTML = prompt.desc
+                testMoodCard.appendChild(li)
+            }
+        })
+        // debugger
     }
 }
