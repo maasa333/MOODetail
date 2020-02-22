@@ -16,6 +16,9 @@ class Prompts {
     }
 
     display() {
-        const promptsContainer = document.getElementById('prompts-container')
+        const moodsContainer = document.getElementById('moods-container')
+        
+        const promptsStr = this.prompts.map(mood => `<div class="mood-card">${mood.state}</div>`).join('')
+        moodsContainer.innerHTML = promptsStr
     }
 }

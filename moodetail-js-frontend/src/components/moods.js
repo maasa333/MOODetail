@@ -1,9 +1,13 @@
 class Moods {
     constructor() {
-        this.moods = [];
+        this.moods = []
         this.adapter = new MoodsAdapter()
-        // this.bindEventListeners()
+        this.cacheElements()
         this.fetchAndLoadMoods()
+    }
+
+    cacheElements() {
+        this.moodsContainer = document.getElementById('moods-container')
     }
 
     fetchAndLoadMoods() {
@@ -16,8 +20,6 @@ class Moods {
     }
 
     display() {
-        const moodsContainer = document.getElementById('moods-container')
-        const moodsStr = this.moods.map(mood => `<li>${mood.state}</li>`).join('')
-        moodsContainer.innerHTML = moodsStr
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" data-mood-id=${mood.id}>${mood.state}</div>`).join('')
     }
 }
