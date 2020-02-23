@@ -14,6 +14,8 @@ class Moods {
         this.selectedMood = document.querySelector('.input-field')
         this.newPrompt = document.querySelector('.input-text')
         this.form.addEventListener('submit', this.addPrompt.bind(this))
+        this.selectedMood = document.querySelector('.input-field')
+        this.newPrompt = document.querySelector('.input-text')
     }
 
     fetchAndLoadMoods() {
@@ -46,14 +48,12 @@ class Moods {
 
     addPrompt(e) {
         e.preventDefault()
-        this.selectedMood = document.querySelector('.input-field').value
-        this.newPrompt = document.querySelector('.input-text').value
         this.assignedMood = this.moods.find(mood => {
-            return mood.state === this.selectedMood
+            return mood.state === this.selectedMood.value
         })
         this.moodId = this.assignedMood.id
 
-        this.promptsAdapter.addPrompt(this.newPrompt, this.moodId).then(prompt => {
+        this.promptsAdapter.addPrompt(this.newPrompt.value, this.moodId).then(prompt => {
             this.displayNewPrompt(prompt)
         })
     }
@@ -64,14 +64,7 @@ class Moods {
         promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
         moodCard.appendChild(promptDiv)
         
-        this.selectedMood = document.querySelector('.input-field').value = "Select Mood"
-        this.newPrompt = document.querySelector('.input-text').value = ""
+        this.selectedMood.value = "Select Mood"
+        this.newPrompt.value = ""
     }
-
-    // clickPrompt() {
-    //     this.promptDiv = document.querySelectorAll('.prompt-div')
-    //     this.promptDiv.addEventListener('dblclick', e => {
-    //         console.log('double clicked')
-    //     })
-    // }
 }

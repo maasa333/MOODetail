@@ -18,3 +18,11 @@ h1 {
 .prompt-div {
     font-weight: lighter;
 }
+
+.fliph {
+    display: inline-block;
+    vertical-align: top;
+    transform: scaleX(-1); /* Or also:   rotateY(180deg) */
+    -ms-filter: fliph;
+    filter: fliph;
+  }
