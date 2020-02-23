@@ -11,7 +11,8 @@
     <h1 class="title">MOO<span class="fliph">D</span>etail</h1>
       <form id="new-prompt-form">
         <div class="select is-rounded">
-          <select class="select">
+          <!-- id="select-mood"> -->
+          <select class="select" id="select-mood">
             <option>Select Mood</option>
             <option>Happy</option>
             <option>Sad</option>
@@ -21,12 +22,13 @@
         </div>
         <br>
           
-        <input class="input is-rounded" type="text">
+        <input class="input is-rounded" type="text" id="prompt-input">
         <input type="submit" class="button is-rounded is-primary">
       </form>
 
     <div class="moods-container">
     </div>
+    <br>
 
     <script src="src/components/moods.js"></script>
     <script src="src/components/mood.js"></script>
@@ -35,6 +37,6 @@
     <script src="src/adapters/MoodsAdapter.js"></script>
     <script src="src/adapters/PromptsAdapter.js"></script>
     <script src="src/index.js"></script>
-      
+
   </body>
 </html>
