@@ -11,8 +11,8 @@ class Moods {
 
     cacheMoodElements() {
         this.moodsContainer = document.querySelector('.moods-container')
-        // this.form = document.getElementById('new-prompt-form')
-        // this.form.addEventListener('submit', this.addPrompt.bind(this))
+        this.form = document.getElementById('new-prompt-form')
+        this.form.addEventListener('submit', this.addPrompt.bind(this))
     }
 
     fetchAndLoadMoods() {
@@ -44,26 +44,36 @@ class Moods {
     }
 
     addPrompt() {
-        this.form = document.getElementById('new-prompt-form')
-        this.form.addEventListener('submit', e => {
-            e.preventDefault()
-        
-            this.selectedMood = document.querySelector('.input-field').value
-            this.newPrompt = document.querySelector('.input-text').value
-            
-            const assignedMood = this.moods.find(mood => {
-                return mood.state === this.selectedMood
-            })
-            // debugger
-            const moodId = assignedMood.id
-            // postPrompt(desc, moodId);
-    
-            // inputs[0].value = "Select Mood"
-            // inputs[1].value = ""
-
-            this.promptsAdapter.addPrompt(this.newPrompt, moodId).then(prompt => {
-                this.prompts.push(new Prompt(prompt))
-            })
+        const selectedMood = document.querySelector('.input-field').value
+        const newPrompt = document.querySelector('.input-text').value
+        const assignedMood = this.moods.find(mood => {
+            return mood.state === selectedMood
         })
+        const moodId = assignedMood.id
+
+        this.promptsAdapter.addPrompt(newPrompt, moodId).then(prompt => {
+            console.log(prompt)
+        })
+
+        // this.form = document.getElementById('new-prompt-form')
+
+        // this.form.addEventListener('submit', e => {
+        //     e.preventDefault()
+        
+        //     this.selectedMood = document.querySelector('.input-field').value
+        //     this.newPrompt = document.querySelector('.input-text').value
+            
+        //     this.assignedMood = this.moods.find(mood => {
+        //         return mood.state === this.selectedMood
+        //     })
+        //     this.moodId = this.assignedMood.id
+        //     this.promptsAdapter.addPrompt(this.newPrompt, this.moodId).then
+        //     (prompt => {
+        //         this.prompts.push(new Prompt(prompt))
+        //         this.displayPrompts()
+        //         // this.form.querySelectorAll('.input-field').value = "Select Mood"
+        //         // this.form.querySelector('.input-text').value = ''
+        //     })
+        // })
     }
 }
