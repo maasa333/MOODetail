@@ -6,11 +6,13 @@ class Moods {
         this.promptsAdapter = new PromptsAdapter() 
         this.cacheMoodElements()
         this.fetchAndLoadMoods()
-        this.newPrompt()
+        this.addPrompt()
     }
 
     cacheMoodElements() {
         this.moodsContainer = document.querySelector('.moods-container')
+        // this.form = document.getElementById('new-prompt-form')
+        // this.form.addEventListener('submit', this.addPrompt.bind(this))
     }
 
     fetchAndLoadMoods() {
@@ -41,25 +43,27 @@ class Moods {
         })
     }
 
-    newPrompt() {
-        function postPrompt(desc, moodId) {
-            const data = {
-                desc: desc,
-                mood_id: moodId
-            }
-            return fetch(promptUrl, {
-                method: 'POST', 
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
+    addPrompt() {
+        this.form = document.getElementById('new-prompt-form')
+        this.form.addEventListener('submit', e => {
+            e.preventDefault()
+        
+            this.selectedMood = document.querySelector('.input-field').value
+            this.newPrompt = document.querySelector('.input-text').value
+            
+            const assignedMood = this.moods.find(mood => {
+                return mood.state === this.selectedMood
             })
-            .then(resp => {
-                return resp.json()
+            // debugger
+            const moodId = assignedMood.id
+            // postPrompt(desc, moodId);
+    
+            // inputs[0].value = "Select Mood"
+            // inputs[1].value = ""
+
+            this.promptsAdapter.addPrompt(this.newPrompt, moodId).then(prompt => {
+                this.prompts.push(new Prompt(prompt))
             })
-            .then(prompt => {
-                updatePrompts(prompt)
-            })
-        }
+        })
     }
 }
