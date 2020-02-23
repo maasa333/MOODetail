@@ -21,19 +21,22 @@ class Moods {
         }))
         .then(() => {
             this.displayMoods()
+        })
+        .then(() => {
             this.displayPrompts()
         })
     }
 
     displayMoods() {
-        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" data-mood-id=${mood.id}>${mood.state}</div><ul></ul>`).join('')
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div>`).join('')
     }
 
-    displayPrompts() {
-        console.log(this.moodsContainer.querySelectorAll('.mood-card').forEach(
-            function(mood) {
-                console.log(mood.dataset.moodId)
-            }
-        ))
+    displayPrompts() {        
+        this.prompts.map(prompt => {
+            const moodCard = document.getElementById(`${prompt.mood_id}`)
+            const promptDiv = document.createElement('div')
+            promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
+            moodCard.appendChild(promptDiv)
+        })
     }
 }
