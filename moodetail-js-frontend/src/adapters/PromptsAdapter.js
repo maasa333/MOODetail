@@ -19,11 +19,10 @@ class PromptsAdapter {
             },
             body: JSON.stringify(data)
         })
-        .then(resp => {
-            resp.json()
-        })
-        .then(prompt => {
-            console.log(prompt)
+        .then(resp => resp.json())
+        .then(prompt => { 
+             console.log(prompt)
+             return prompt
         })
     }
 }
