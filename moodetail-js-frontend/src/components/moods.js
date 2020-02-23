@@ -6,6 +6,7 @@ class Moods {
         this.promptsAdapter = new PromptsAdapter() 
         this.cacheMoodElements()
         this.fetchAndLoadMoods()
+        this.newPrompt()
     }
 
     cacheMoodElements() {
@@ -28,15 +29,40 @@ class Moods {
     }
 
     displayMoods() {
-        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div>`).join('')
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div> <ul></ul>`).join('')
     }
 
     displayPrompts() {        
         this.prompts.map(prompt => {
             const moodCard = document.getElementById(`${prompt.mood_id}`)
-            const promptDiv = document.createElement('div')
-            promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
-            moodCard.appendChild(promptDiv)
+            // const promptDiv = document.createElement('div')
+            const li = document.createElement('li')
+            li.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
+            // promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
+            // moodCard.appendChild(promptDiv)
+            moodCard.appendChild(li)
         })
+    }
+
+    newPrompt() {
+        function postPrompt(desc, moodId) {
+            const data = {
+                desc: desc,
+                mood_id: moodId
+            }
+            return fetch(promptUrl, {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(resp => {
+                return resp.json()
+            })
+            .then(prompt => {
+                updatePrompts(prompt)
+            })
+        }
     }
 }
