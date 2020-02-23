@@ -51,11 +51,10 @@ class Moods {
         this.assignedMood = this.moods.find(mood => {
             return mood.state === this.selectedMood
         })
-        this.moodId = this.assignedMood.id 
-        // TypeError: Cannot read property 'id of undefined????
+        this.moodId = this.assignedMood.id
 
         this.promptsAdapter.addPrompt(this.newPrompt, this.moodId).then(prompt => {
-            // append to right container
+            this.displayNewPrompt(prompt)
         })
     }
 
@@ -64,6 +63,9 @@ class Moods {
         const promptDiv = document.createElement('div')
         promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
         moodCard.appendChild(promptDiv)
+        
+        this.selectedMood = document.querySelector('.input-field').value = "Select Mood"
+        this.newPrompt = document.querySelector('.input-text').value = ""
     }
 
     // clickPrompt() {

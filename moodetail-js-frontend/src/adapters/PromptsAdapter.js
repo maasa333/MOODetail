@@ -21,8 +21,7 @@ class PromptsAdapter {
         })
         .then(resp => resp.json())
         .then(prompt => { 
-             console.log(prompt)
-             return prompt
+            return prompt
         })
     }
 }
