@@ -5,39 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOODetail</title>
     <link rel="stylesheet" href="styles/style.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 </head>
   <body>
     <h1 class="title">MOO<span class="fliph">D</span>etail</h1>
-    <div class="container">
-        <form id="new-prompt-form">
-          <select class="input-field">
+      <form id="new-prompt-form">
+        <div class="select is-rounded">
+          <select class="select">
             <option>Select Mood</option>
             <option>Happy</option>
             <option>Sad</option>
             <option>Angry</option>
             <option>Calm</option>
           </select>
-          <br>
+        </div>
+        <br>
           
-          <input class="input-text" type="text">
-          <br>
-          <input type="submit">
-          <br>
-        </form>
-      </div>
-  
-      <div class="moods-container">
-      </div>
+        <input class="input is-rounded" type="text">
+        <input type="submit" class="button is-rounded is-primary">
+      </form>
 
-      <script src="src/components/moods.js"></script>
-      <script src="src/components/mood.js"></script>
-      <script src="src/components/prompts.js"></script>
-      <script src="src/components/prompt.js"></script>
-      <script src="src/components/app.js"></script>
-      <script src="src/adapters/MoodsAdapter.js"></script>
-      <script src="src/adapters/PromptsAdapter.js"></script>
-      <script src="src/index.js"></script>
+    <div class="moods-container">
+    </div>
+
+    <script src="src/components/moods.js"></script>
+    <script src="src/components/mood.js"></script>
+    <script src="src/components/prompt.js"></script>
+    <script src="src/components/app.js"></script>
+    <script src="src/adapters/MoodsAdapter.js"></script>
+    <script src="src/adapters/PromptsAdapter.js"></script>
+    <script src="src/index.js"></script>
       
   </body>
 </html>

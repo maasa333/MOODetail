@@ -11,11 +11,15 @@ class Moods {
     cacheAndBindElements() {
         this.moodsContainer = document.querySelector('.moods-container')
         this.form = document.getElementById('new-prompt-form')
-        this.selectedMood = document.querySelector('.input-field')
-        this.newPrompt = document.querySelector('.input-text')
+        // this.selectedMood = document.querySelector('.input-field')
+        this.selectedMood = document.querySelector('.select is-rounded')
+        // this.newPrompt = document.querySelector('.input-text')
+        this.newPrompt = document.querySelector('.input is-rounded')
         this.form.addEventListener('submit', this.addPrompt.bind(this))
-        this.selectedMood = document.querySelector('.input-field')
-        this.newPrompt = document.querySelector('.input-text')
+        // this.selectedMood = document.querySelector('.input-field')
+        this.selectedMood = document.querySelector('.select is-rounded')
+        // this.newPrompt = document.querySelector('.input-text')
+        this.newPrompt = document.querySelector('.input is-rounded')
     }
 
     fetchAndLoadMoods() {
@@ -34,7 +38,8 @@ class Moods {
     }
 
     displayMoods() {
-        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div>`).join('')
+        // this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div>`).join('')
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="box is-rounded" id=${mood.id}>${mood.state}</div>`).join('')
     }
 
     displayPrompts() {  
