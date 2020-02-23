@@ -11,3 +11,10 @@ h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.mood-card {
+    font-weight: bolder;
+}
+
+.prompt-div {
+    font-weight: lighter;
+}
