@@ -29,18 +29,15 @@ class Moods {
     }
 
     displayMoods() {
-        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div> <ul></ul>`).join('')
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="mood-card" id=${mood.id}>${mood.state}</div>`).join('')
     }
 
     displayPrompts() {        
         this.prompts.map(prompt => {
             const moodCard = document.getElementById(`${prompt.mood_id}`)
-            // const promptDiv = document.createElement('div')
-            const li = document.createElement('li')
-            li.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
-            // promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
-            // moodCard.appendChild(promptDiv)
-            moodCard.appendChild(li)
+            const promptDiv = document.createElement('div')
+            promptDiv.innerHTML = `<div class="prompt-div" data-prompt-id=${prompt.id} data-mood-id=${prompt.mood_id}>${prompt.desc}</div>`
+            moodCard.appendChild(promptDiv)
         })
     }
 
