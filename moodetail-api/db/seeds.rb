@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+calm = Mood.create(state: "Calm")
+happy = Mood.create(state: "Happy")
+fearful = Mood.create(state: "Fearful")
+angry = Mood.create(state: "Angry")
+sad = Mood.create(state: "Sad")
+humorous = Mood.create(state: "Humorous")

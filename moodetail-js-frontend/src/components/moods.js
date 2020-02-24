@@ -51,7 +51,6 @@ class Moods {
         e.preventDefault()
         const selectedMood = document.querySelector('select#select-mood')
         const newPrompt = document.querySelector('input#prompt-input')
-        
         this.assignedMood = this.moods.find(mood => {
             return mood.state === selectedMood.value
         })
