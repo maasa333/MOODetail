@@ -16,7 +16,6 @@ class Moods {
         this.selectedMood = document.querySelector('.select is-rounded')
         this.newPrompt = document.querySelector('.input is-rounded')
         this.moodsContainer.addEventListener('click', this.clickPrompt.bind(this))
-        // this.body.addEventListener('blur', this.)
     }
 
     fetchAndLoadMoods() {
@@ -75,26 +74,31 @@ class Moods {
         if (e.target.hasAttribute('data-prompt-id')) {
             const promptDiv = e.target
             promptDiv.setAttribute('contentEditable', true)
-            
             const br = document.createElement('br')
             const deleteBtn = document.createElement('button')
             deleteBtn.innerHTML = "Delete"
             deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
+            deleteBtn.setAttribute('contentEditable', false)
+            const editBtn = document.createElement('button')
+            editBtn.innerHTML = "Edit"
+            editBtn.setAttribute('class', 'button is-rounded is-info is-small')
+            editBtn.setAttribute('contentEditable', false)
             if (promptDiv.childElementCount === 0) {
                 promptDiv.appendChild(br)
+                promptDiv.appendChild(editBtn)
                 promptDiv.appendChild(deleteBtn)
-                console.log(promptDiv)
             }            
         }
-        // const clickedPromptId = e.target.dataset.promptId
-
-        // const br = document.createElement('br')
-        // const deleteBtn = document.createElement('button')
-        // deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
-        // deleteBtn.innerHTML = "Delete"
-        // if (e.target.childElementCount === 0) {
-        //     e.target.appendChild(br)
-        //     e.target.appendChild(deleteBtn)
-        // }
     }
+
+    // clickOut(e) {
+    //     debugger
+    //     console.log(e.target)
+    //     const promptDiv = e.target
+    //     promptDiv
+    //     // const deleteBtn = document.querySelector('button', 'Delete')
+    //     // const promptDiv = deleteBtn.parentElement
+    //     // promptDiv.removeChild
+    //     // console.log(promptDiv)
+    // }
 }
