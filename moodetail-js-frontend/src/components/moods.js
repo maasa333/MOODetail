@@ -15,7 +15,7 @@ class Moods {
         this.form.addEventListener('submit', this.addPrompt.bind(this))
         this.selectedMood = document.querySelector('.select is-rounded')
         this.newPrompt = document.querySelector('.input is-rounded')
-        // this.moodsContainer.addEventListener('click', this.clickPrompt.bind(this))
+        this.moodsContainer.addEventListener('click', this.clickPrompt.bind(this))
         // this.body.addEventListener('blur', this.)
     }
 
@@ -38,7 +38,7 @@ class Moods {
         this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="box is-rounded" id=${mood.id}>${mood.state}</div>`).join('')
     }
 
-    displayPrompts() {  
+    displayPrompts() {
         this.prompts.map(prompt => {
             const moodCard = document.getElementById(`${prompt.mood_id}`)
             const promptDiv = document.createElement('div')
@@ -70,16 +70,31 @@ class Moods {
         moodCard.appendChild(promptDiv)
     }
 
-    // clickPrompt(e) {
-    //     const clickedPromptId = e.target.dataset.promptId
+    clickPrompt(e) {
+        // const promptId = e.target.dataset.promptId
+        if (e.target.hasAttribute('data-prompt-id')) {
+            const promptDiv = e.target
+            promptDiv.setAttribute('contentEditable', true)
+            
+            const br = document.createElement('br')
+            const deleteBtn = document.createElement('button')
+            deleteBtn.innerHTML = "Delete"
+            deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
+            if (promptDiv.childElementCount === 0) {
+                promptDiv.appendChild(br)
+                promptDiv.appendChild(deleteBtn)
+                console.log(promptDiv)
+            }            
+        }
+        // const clickedPromptId = e.target.dataset.promptId
 
-    //     const br = document.createElement('br')
-    //     const deleteBtn = document.createElement('button')
-    //     deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
-    //     deleteBtn.innerHTML = "Delete"
-    //     if (e.target.childElementCount === 0) {
-    //         e.target.appendChild(br)
-    //         e.target.appendChild(deleteBtn)
-    //     }
-    // }
+        // const br = document.createElement('br')
+        // const deleteBtn = document.createElement('button')
+        // deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
+        // deleteBtn.innerHTML = "Delete"
+        // if (e.target.childElementCount === 0) {
+        //     e.target.appendChild(br)
+        //     e.target.appendChild(deleteBtn)
+        // }
+    }
 }
