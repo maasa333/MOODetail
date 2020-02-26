@@ -15,7 +15,10 @@ class Moods {
         this.form.addEventListener('submit', this.addPrompt.bind(this))
         this.selectedMood = document.querySelector('.select is-rounded')
         this.newPrompt = document.querySelector('.input is-rounded')
-        this.moodsContainer.addEventListener('click', this.clickPrompt.bind(this))
+        this.moodsContainer.addEventListener('click', this.editPrompt.bind(this))
+        this.moodsContainer.addEventListener('keypress', this.updatePrompt.bind(this))
+        // this.moodsContainer.addEventListener('click', this.clickToAddButtons.bind(this))
+        // this.moodsContainer.addEventListener('click', this.clickEdit.bind(this))
     }
 
     fetchAndLoadMoods() {
@@ -69,36 +72,56 @@ class Moods {
         moodCard.appendChild(promptDiv)
     }
 
-    clickPrompt(e) {
-        // const promptId = e.target.dataset.promptId
+    editPrompt(e) {
         if (e.target.hasAttribute('data-prompt-id')) {
             const promptDiv = e.target
             promptDiv.setAttribute('contentEditable', true)
-            const br = document.createElement('br')
-            const deleteBtn = document.createElement('button')
-            deleteBtn.innerHTML = "Delete"
-            deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
-            deleteBtn.setAttribute('contentEditable', false)
-            const editBtn = document.createElement('button')
-            editBtn.innerHTML = "Edit"
-            editBtn.setAttribute('class', 'button is-rounded is-info is-small')
-            editBtn.setAttribute('contentEditable', false)
-            if (promptDiv.childElementCount === 0) {
-                promptDiv.appendChild(br)
-                promptDiv.appendChild(editBtn)
-                promptDiv.appendChild(deleteBtn)
-            }            
+            // console.log(e.target)
         }
     }
 
-    // clickOut(e) {
-    //     debugger
-    //     console.log(e.target)
-    //     const promptDiv = e.target
-    //     promptDiv
-    //     // const deleteBtn = document.querySelector('button', 'Delete')
-    //     // const promptDiv = deleteBtn.parentElement
-    //     // promptDiv.removeChild
-    //     // console.log(promptDiv)
+    updatePrompt(e) {
+        if (e.key === 'Enter') {
+            const promptDiv = e.target
+            promptDiv.setAttribute('contentEditable', false)
+            // debugger
+        }
+    }
+
+    // clickToAddButtons(e) {
+    //     if (e.target.hasAttribute('data-prompt-id')) {
+    //         const promptDiv = e.target
+    //         const btnDiv = document.createElement('div')
+    //         btnDiv.setAttribute('class', 'button-div')
+    //         const deleteBtn = document.createElement('button')
+    //         deleteBtn.innerHTML = "Delete"
+    //         deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
+    //         const editBtn = document.createElement('button')
+    //         editBtn.innerHTML = "Edit"
+    //         editBtn.setAttribute('class', 'button is-rounded is-info is-small')
+    //         // debugger
+    //         if (promptDiv.childElementCount === 0) {
+    //             // promptDiv.setAttribute('class', 'editable-prompt-div')
+    //             promptDiv.appendChild(btnDiv)
+    //             btnDiv.setAttribute('contentEditable', false)
+    //             btnDiv.appendChild(editBtn)
+    //             btnDiv.appendChild(deleteBtn)   
+    //         }
+    //         // if (promptDiv.childElementCount === 0) {
+    //             // promptDiv.setAttribute('class', 'editable-prompt-div')
+    //             // promptDiv.appendChild(btnDiv)
+    //             // btnDiv.insertAdjacentElement(editBtn)
+    //             // btnDiv.insertAdjacentElement(deleteBtn)
+    //         // }            
+    //     }
+    // }
+
+    // clickEdit(e) {
+    //     if (e.target.innerHTML === "Edit") {
+    //         const promptDesc = e.target.parentElement.parentElement
+    //         promptDesc.setAttribute('contentEditable', true)
+    //         debugger
+            
+    //     }
     // }
 }
