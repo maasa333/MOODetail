@@ -17,8 +17,6 @@ class Moods {
         this.newPrompt = document.querySelector('.input is-rounded')
         this.moodsContainer.addEventListener('click', this.editPrompt.bind(this))
         this.moodsContainer.addEventListener('keypress', this.updatePrompt.bind(this))
-        // this.moodsContainer.addEventListener('click', this.clickToAddButtons.bind(this))
-        // this.moodsContainer.addEventListener('click', this.clickEdit.bind(this))
     }
 
     fetchAndLoadMoods() {
@@ -76,7 +74,6 @@ class Moods {
         if (e.target.hasAttribute('data-prompt-id')) {
             const promptDiv = e.target
             promptDiv.setAttribute('contentEditable', true)
-            // console.log(e.target)
         }
     }
 
@@ -91,45 +88,6 @@ class Moods {
                 const desc = promptDiv.innerText
                 this.promptsAdapter.editPrompt(desc, promptId)
             }
-            // PATCH request for changes made
-            // DELETE if empty
         }
     }
-
-    // clickToAddButtons(e) {
-    //     if (e.target.hasAttribute('data-prompt-id')) {
-    //         const promptDiv = e.target
-    //         const btnDiv = document.createElement('div')
-    //         btnDiv.setAttribute('class', 'button-div')
-    //         const deleteBtn = document.createElement('button')
-    //         deleteBtn.innerHTML = "Delete"
-    //         deleteBtn.setAttribute('class', 'button is-rounded is-danger is-small')
-    //         const editBtn = document.createElement('button')
-    //         editBtn.innerHTML = "Edit"
-    //         editBtn.setAttribute('class', 'button is-rounded is-info is-small')
-    //         // debugger
-    //         if (promptDiv.childElementCount === 0) {
-    //             // promptDiv.setAttribute('class', 'editable-prompt-div')
-    //             promptDiv.appendChild(btnDiv)
-    //             btnDiv.setAttribute('contentEditable', false)
-    //             btnDiv.appendChild(editBtn)
-    //             btnDiv.appendChild(deleteBtn)   
-    //         }
-    //         // if (promptDiv.childElementCount === 0) {
-    //             // promptDiv.setAttribute('class', 'editable-prompt-div')
-    //             // promptDiv.appendChild(btnDiv)
-    //             // btnDiv.insertAdjacentElement(editBtn)
-    //             // btnDiv.insertAdjacentElement(deleteBtn)
-    //         // }            
-    //     }
-    // }
-
-    // clickEdit(e) {
-    //     if (e.target.innerHTML === "Edit") {
-    //         const promptDesc = e.target.parentElement.parentElement
-    //         promptDesc.setAttribute('contentEditable', true)
-    //         debugger
-            
-    //     }
-    // }
 }
