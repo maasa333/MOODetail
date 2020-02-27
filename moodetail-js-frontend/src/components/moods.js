@@ -84,9 +84,12 @@ class Moods {
         if (e.key === 'Enter') {
             const promptDiv = e.target
             promptDiv.setAttribute('contentEditable', false)
+            const promptId = e.target.dataset.promptId
             if (promptDiv.innerText === "") {
-                const promptId = e.target.dataset.promptId
                 this.promptsAdapter.deletePrompt(promptId)
+            } else {
+                const desc = promptDiv.innerText
+                this.promptsAdapter.editPrompt(desc, promptId)
             }
             // PATCH request for changes made
             // DELETE if empty

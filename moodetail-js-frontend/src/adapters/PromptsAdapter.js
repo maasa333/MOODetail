@@ -25,9 +25,23 @@ class PromptsAdapter {
         })
     }
 
-    deletePrompt(id) {
-        return fetch(this.baseUrl + `/${id}`, {
+    deletePrompt(promptId) {
+        return fetch(this.baseUrl + `/${promptId}`, {
             method: 'DELETE'
+        })
+        .then(resp => resp.json())
+    }
+
+    editPrompt(desc, promptId) {
+        const data = {
+            desc: desc
+        }
+        return fetch(this.baseUrl + `/${promptId}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         })
         .then(resp => resp.json())
     }
