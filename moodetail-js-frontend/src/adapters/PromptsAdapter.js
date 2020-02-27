@@ -24,4 +24,11 @@ class PromptsAdapter {
             return prompt
         })
     }
+
+    deletePrompt(id) {
+        return fetch(this.baseUrl + `/${id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => resp.json())
+    }
 }

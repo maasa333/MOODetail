@@ -84,7 +84,12 @@ class Moods {
         if (e.key === 'Enter') {
             const promptDiv = e.target
             promptDiv.setAttribute('contentEditable', false)
-            // debugger
+            if (promptDiv.innerText === "") {
+                const promptId = e.target.dataset.promptId
+                this.promptsAdapter.deletePrompt(promptId)
+            }
+            // PATCH request for changes made
+            // DELETE if empty
         }
     }
 
