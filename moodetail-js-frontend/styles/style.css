@@ -5,11 +5,32 @@ body {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    background: rgba(248, 224, 208, 0.822);
+    /* background: rgba(13, 59, 35, 0.822); */
+    background-image: url("https://i.etsystatic.com/8591869/r/il/492104/1203014510/il_1588xN.1203014510_nj95.jpg");
 }
 
 div.Calm {
-    background: rgba(139, 218, 163, 0.534);
+    background: rgba(102, 176, 236, 0.596);
+}
+
+div.Happy {
+    background: rgba(224, 238, 97, 0.596);
+}
+
+div.Fearful {
+    background: rgba(70, 74, 77, 0.596);
+}
+
+div.Angry {
+    background: rgba(231, 84, 64, 0.596);
+}
+
+div.Sad {
+    background: rgba(38, 65, 218, 0.596);
+}
+
+div.Humorous {
+    background: rgba(230, 131, 40, 0.596);
 }
 
 h1 {
