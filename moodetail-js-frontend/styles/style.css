@@ -5,32 +5,38 @@ body {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    /* background: rgba(13, 59, 35, 0.822); */
     background-image: url("https://i.etsystatic.com/8591869/r/il/492104/1203014510/il_1588xN.1203014510_nj95.jpg");
+    background-attachment: fixed;
 }
 
 div.Calm {
-    background: rgba(102, 176, 236, 0.596);
+    background: rgba(102, 176, 236, 0.691);
+    color: white;
 }
 
 div.Happy {
-    background: rgba(224, 238, 97, 0.596);
+    background: rgba(203, 219, 57, 0.787);
+    color: white;
 }
 
 div.Fearful {
-    background: rgba(70, 74, 77, 0.596);
+    background: rgba(70, 74, 77, 0.712);
+    color: white;
 }
 
 div.Angry {
-    background: rgba(231, 84, 64, 0.596);
+    background: rgba(231, 83, 64, 0.712);
+    color: white;
 }
 
 div.Sad {
-    background: rgba(38, 65, 218, 0.596);
+    background: rgba(38, 65, 218, 0.671);
+    color: white;
 }
 
 div.Humorous {
-    background: rgba(230, 131, 40, 0.596);
+    background: rgba(230, 132, 40, 0.691);
+    color: white;
 }
 
 h1 {
@@ -51,4 +57,8 @@ h1 {
 
 .prompt-div {
     font-weight: lighter;
+}
+
+.prompt-div {
+    color: white;
 }
