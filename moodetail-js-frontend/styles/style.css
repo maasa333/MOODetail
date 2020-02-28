@@ -5,10 +5,23 @@ body {
     flex-direction: column;
     width: 100%;
     text-align: center;
+    background: rgba(248, 224, 208, 0.822);
+}
+
+div.Calm {
+    background: rgba(139, 218, 163, 0.534);
 }
 
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.fliph {
+    display: inline-block;
+    vertical-align: top;
+    transform: scaleX(-1);
+    -ms-filter: fliph;
+    filter: fliph;
 }
 
 .mood-card {
@@ -17,16 +30,4 @@ h1 {
 
 .prompt-div {
     font-weight: lighter;
-}
-
-.fliph {
-    display: inline-block;
-    vertical-align: top;
-    transform: scaleX(-1); /* Or also:   rotateY(180deg) */
-    -ms-filter: fliph;
-    filter: fliph;
-}
-
-body {
-    background: rgb(246, 218, 195);
 }

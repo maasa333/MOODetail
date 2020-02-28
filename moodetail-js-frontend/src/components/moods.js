@@ -13,6 +13,7 @@ class Moods {
         this.moodsContainer = document.querySelector('.moods-container')
         this.form = document.getElementById('new-prompt-form')
         this.form.addEventListener('submit', this.addPrompt.bind(this))
+        this.form.addEventListener('submit', this.validateForm.bind(this))
         this.selectedMood = document.querySelector('.select is-rounded')
         this.newPrompt = document.querySelector('.input is-rounded')
         this.moodsContainer.addEventListener('click', this.editPrompt.bind(this))
@@ -35,7 +36,7 @@ class Moods {
     }
 
     displayMoods() {
-        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="box is-rounded" id=${mood.id}>${mood.state}</div>`).join('')
+        this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="${mood.state} box is-rounded" id=${mood.id}>${mood.state}</div>`).join('')
     }
 
     displayPrompts() {
@@ -55,16 +56,24 @@ class Moods {
             return mood.state === selectedMood.value
         })
         this.moodId = this.assignedMood.id
-        if (newPrompt.value === "") {
-            alert("Please describe what prompted this mood")
-            return false
-        }
-
         this.promptsAdapter.addPrompt(newPrompt.value, this.moodId).then(prompt => {
             this.displayNewPrompt(prompt)
             selectedMood.value = "Select Mood"
             newPrompt.value = ""
         })
+    }
+
+    validateForm(e) {
+        const selectedMood = document.querySelector('select#select-mood')
+        if (selectedMood.value === "Select Mood") {
+            alert("Please select a mood")
+            return false
+        }
+        const newPrompt = document.querySelector('input#prompt-input')
+        if (newPrompt.value === "") {
+            alert("Please describe what prompted this mood")
+            return false
+        }
     }
 
     displayNewPrompt(prompt) {
