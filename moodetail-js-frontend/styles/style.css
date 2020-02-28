@@ -25,8 +25,8 @@ h1 {
     transform: scaleX(-1); /* Or also:   rotateY(180deg) */
     -ms-filter: fliph;
     filter: fliph;
-  }
+}
 
-.editable-prompt-div {
-    
+body {
+    background: rgb(246, 218, 195);
 }
