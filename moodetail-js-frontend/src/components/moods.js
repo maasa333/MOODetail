@@ -17,7 +17,6 @@ class Moods {
         this.selectedMood = document.querySelector('select#select-mood')
         this.newPrompt = document.querySelector('input#prompt-input')
         
-        // this.form.addEventListener('submit', this.validateForm.bind(this))
         this.form.addEventListener('submit', this.addPrompt.bind(this))
         this.moodsContainer.addEventListener('click', this.editPrompt.bind(this))
         this.moodsContainer.addEventListener('keypress', this.updatePrompt.bind(this))
@@ -53,9 +52,6 @@ class Moods {
 
     addPrompt(e) {
         e.preventDefault()
-        // this.validateForm()
-        // const selectedMood = document.querySelector('select#select-mood')
-        // const newPrompt = document.querySelector('input#prompt-input')
         this.assignedMood = this.moods.find(mood => {
             return mood.state === this.selectedMood.value
         })
@@ -66,7 +62,7 @@ class Moods {
         } else if (this.newPrompt.value === "") {
             alert("Please describe what prompted this mood")
             return false
-        }  else if (this.selectedMood.value !== "Select Mood" && this.newPrompt.value !== "") {
+        }  else {
             this.moodId = this.assignedMood.id
             this.promptsAdapter.addPrompt(this.newPrompt.value, this.moodId).then(prompt => {
                 this.displayNewPrompt(prompt)
@@ -75,19 +71,6 @@ class Moods {
             })
         }
     }
-
-    // validateForm(e) {
-    //     if (this.selectedMood.value === "Select Mood") {
-    //         alert("Please select a mood")
-    //         return false
-    //     }
-    //     // const selectedMood = document.querySelector('select#select-mood')
-    //     // const newPrompt = document.querySelector('input#prompt-input')
-    //     else if (this.newPrompt.value === "") {
-    //         alert("Please describe what prompted this mood")
-    //         return false
-    //     }
-    // }
 
     displayNewPrompt(prompt) {
         const moodCard = document.getElementById(`${prompt.mood_id}`)
