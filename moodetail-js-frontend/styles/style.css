@@ -9,6 +9,16 @@ body {
     background-attachment: fixed;
 }
 
+/* div.fixed {
+    position: fixed;
+    top: 0px;
+}
+
+div.moods-container {
+    position: absolute;
+    top: 300px;
+} */
+
 div.Calm {
     background: rgba(102, 176, 236, 0.691);
     color: white;
