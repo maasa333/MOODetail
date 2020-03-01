@@ -53,27 +53,37 @@ class Moods {
 
     addPrompt(e) {
         e.preventDefault()
+        // this.validateForm()
         // const selectedMood = document.querySelector('select#select-mood')
         // const newPrompt = document.querySelector('input#prompt-input')
         this.assignedMood = this.moods.find(mood => {
             return mood.state === this.selectedMood.value
         })
-        this.moodId = this.assignedMood.id
-        this.promptsAdapter.addPrompt(this.newPrompt.value, this.moodId).then(prompt => {
-            this.displayNewPrompt(prompt)
-            this.selectedMood.value = "Select Mood"
-            this.newPrompt.value = ""
-        })
+
+        if (this.selectedMood.value === "Select Mood") {
+            alert("Please select a mood")
+            return false
+        } else if (this.newPrompt.value === "") {
+            alert("Please describe what prompted this mood")
+            return false
+        }  else if (this.selectedMood.value !== "Select Mood" && this.newPrompt.value !== "") {
+            this.moodId = this.assignedMood.id
+            this.promptsAdapter.addPrompt(this.newPrompt.value, this.moodId).then(prompt => {
+                this.displayNewPrompt(prompt)
+                this.selectedMood.value = "Select Mood"
+                this.newPrompt.value = ""
+            })
+        }
     }
 
     // validateForm(e) {
-    //     // const selectedMood = document.querySelector('select#select-mood')
-    //     if (selectedMood.value === "Select Mood") {
+    //     if (this.selectedMood.value === "Select Mood") {
     //         alert("Please select a mood")
     //         return false
     //     }
-    //     const newPrompt = document.querySelector('input#prompt-input')
-    //     if (newPrompt.value === "") {
+    //     // const selectedMood = document.querySelector('select#select-mood')
+    //     // const newPrompt = document.querySelector('input#prompt-input')
+    //     else if (this.newPrompt.value === "") {
     //         alert("Please describe what prompted this mood")
     //         return false
     //     }
