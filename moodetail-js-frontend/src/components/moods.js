@@ -55,14 +55,13 @@ class Moods {
         this.assignedMood = this.moods.find(mood => {
             return mood.state === this.selectedMood.value
         })
-
         if (this.selectedMood.value === "Select Mood") {
             alert("Please select a mood")
             return false
         } else if (this.newPrompt.value === "") {
             alert("Please describe what prompted this mood")
             return false
-        }  else {
+        } else {
             this.moodId = this.assignedMood.id
             this.promptsAdapter.addPrompt(this.newPrompt.value, this.moodId).then(prompt => {
                 this.displayNewPrompt(prompt)

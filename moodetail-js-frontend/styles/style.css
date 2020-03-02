@@ -9,15 +9,20 @@ body {
     background-attachment: fixed;
 }
 
-/* div.fixed {
+div.fixed {
     position: fixed;
-    top: 0px;
+    top: 0;
+    overflow: hidden;
+}
+
+div.spacer {
+    width: 100%;
+    height: 95px;
 }
 
 div.moods-container {
-    position: absolute;
-    top: 300px;
-} */
+    margin-top: 230px;
+}
 
 div.Calm {
     background: rgba(102, 176, 236, 0.691);
