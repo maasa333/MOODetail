@@ -13,12 +13,12 @@ div.fixed {
     position: fixed;
     top: 0;
     overflow: hidden;
-    /* background-color: rgba(192, 201, 161, 0.829); */
     background-image: url("https://i.etsystatic.com/8591869/r/il/492104/1203014510/il_1588xN.1203014510_nj95.jpg");
+    padding-bottom: 5px;
 }
 
 div.moods-container {
-    margin-top: 300px;
+    margin-top: 260px;
 }
 
 div.Calm {
@@ -51,7 +51,7 @@ div.Humorous {
     color: white;
 }
 
-h1 {
+h2 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
