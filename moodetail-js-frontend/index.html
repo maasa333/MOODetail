@@ -13,32 +13,31 @@
       <h3 class=has-text-weight-normal>
         How are you feeling?  Select your current mood and give a short description of what prompted it.<br>Keep using this app to help you practice mindfulness. 
       </h3>
-        <form id="new-prompt-form">
-          <div class="select is-rounded">
-            <select class="select" id="select-mood">
-              <option>Select Mood</option>
-              <option>Calm</option>
-              <option>Happy</option>
-              <option>Fearful</option>
-              <option>Angry</option>
-              <option>Sad</option>
-              <option>Humorous</option>
-            </select>
-          </div>
-          <br>
-          <input class="input is-rounded" type="text" id="prompt-input">
-          <br>
-          <input type="submit" class="button is-rounded is-primary">
-        </form>
-      <!-- <br> -->
+      <form id="new-prompt-form">
+        <div class="select is-rounded">
+          <select class="select" id="select-mood">
+            <option>Select Mood</option>
+            <option>Calm</option>
+            <option>Happy</option>
+            <option>Fearful</option>
+            <option>Angry</option>
+            <option>Sad</option>
+            <option>Humorous</option>
+          </select>
+        </div>
+        <br>
+        <input class="input is-rounded" type="text" id="prompt-input">
+        <br>
+        <input type="submit" class="button is-rounded is-primary">
+      </form>
     </div>
 
     <div class="moods-container">
     </div>
     <br>
 
-    <script src="src/components/moods.js"></script>
     <script src="src/components/mood.js"></script>
+    <script src="src/components/moods.js"></script>
     <script src="src/components/prompt.js"></script>
     <script src="src/components/app.js"></script>
     <script src="src/adapters/MoodsAdapter.js"></script>

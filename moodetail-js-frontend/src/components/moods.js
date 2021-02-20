@@ -16,7 +16,7 @@ class Moods {
         this.newPrompt = document.querySelector('.input is-rounded')
         this.selectedMood = document.querySelector('select#select-mood')
         this.newPrompt = document.querySelector('input#prompt-input')
-        
+
         this.form.addEventListener('submit', this.addPrompt.bind(this))
         this.moodsContainer.addEventListener('click', this.editPrompt.bind(this))
         this.moodsContainer.addEventListener('keypress', this.updatePrompt.bind(this))
@@ -26,18 +26,21 @@ class Moods {
         this.moodsAdapter.getMoods().then(moods => {
             moods.map(mood => this.moods.push(new Mood(mood)))
         })
-        .then(this.promptsAdapter.getPrompts().then(prompts => {
-            prompts.map(prompt => this.prompts.push(new Prompt(prompt)))
-        }))
         .then(() => {
-            this.displayMoods()
+            return this.promptsAdapter.getPrompts()
+        })
+        .then(prompts => {
+            return prompts.map(prompt => this.prompts.push(new Prompt(prompt)))
+        })
+        .then(() => {
+            this.displayMoodCards()
         })
         .then(() => {
             this.displayPrompts()
         })
     }
 
-    displayMoods() {
+    displayMoodCards() {
         this.moodsContainer.innerHTML = this.moods.map(mood => `<div class="${mood.state} box is-rounded" id=${mood.id}>${mood.state}</div>`).join('')
     }
 

@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_02_16_202148) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "moods", force: :cascade do |t|
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_202148) do
 
   create_table "prompts", force: :cascade do |t|
     t.string "desc"
-    t.integer "mood_id", null: false
+    t.bigint "mood_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mood_id"], name: "index_prompts_on_mood_id"

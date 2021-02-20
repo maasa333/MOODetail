@@ -12,7 +12,6 @@ body {
 div.fixed {
     position: fixed;
     top: 0;
-    overflow: hidden;
     background-image: url("https://i.etsystatic.com/8591869/r/il/492104/1203014510/il_1588xN.1203014510_nj95.jpg");
     padding-bottom: 5px;
 }
