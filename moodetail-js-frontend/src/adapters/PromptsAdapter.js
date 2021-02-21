@@ -1,6 +1,7 @@
 class PromptsAdapter {
     constructor() {
-        this.baseUrl = 'http://localhost:3000/prompts'
+        // this.baseUrl = 'http://localhost:3000/prompts'
+        this.baseUrl = 'https://moodetail-api.herokuapp.com/prompts'
     }
 
     getPrompts() {
